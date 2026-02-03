@@ -25,4 +25,20 @@ public class UserController {
     public void addUser(@RequestBody UserModel user){
         service.addUser(user);
     }
+
+    @GetMapping("id/{id}")
+    public UserModel getUserByid(Integer id){
+        return service.getUserById(id);
+    }
+
+
+    @PutMapping("update/id/{id}")
+    public void updateUser(@RequestBody UserModel user, @PathVariable Integer id){
+        service.updateUser(id, user);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public void deleteUser(@PathVariable Integer id){
+        service.deleteUser(id);
+    }
 }
